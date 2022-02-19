@@ -41,9 +41,10 @@ header a{
     width: 250px;
 }
 
-#msg1, #msg2{
-    font-size: 1.3em;
+#msg1, #msg2, #help{
+    font-size: 1.2em;
 }
+
 
 input{
     border: 1px solid #cccccc;

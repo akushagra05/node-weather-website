@@ -8,7 +8,15 @@ const forecast=(latitude,longitude,callback)=>{
         } else if(response.body.error){
             callback("Unable to find the location, Try another search",undefined)
         } else {
-            callback(undefined,`The temprature is ${response.body.current.temp} degrees. It's ${response.body.current.weather[0].description} out there!!`)
+            const currenttemp=response.body.current.temp
+            const description=response.body.current.weather[0].description
+            const humidity=response.body.current.humidity
+            const wind_speed=response.body.current.wind_speed
+            const maxTemp=response.body.daily[0].temp.max
+            const minTemp=response.body.daily[0].temp.min
+            callback(undefined,`The current temprature is ${currenttemp} degrees. The humidity is ${humidity}%.
+            The wind speed is ${wind_speed}m/s. The maximum and minimum temperature for the day is ${maxTemp} and
+            ${minTemp} degrees respectively. Overall it's ${description} out there!!`)
         }
     })
 }
